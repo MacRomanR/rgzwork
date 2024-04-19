@@ -35,7 +35,7 @@ void RSADecode()
 
 	funkPrinciple(2);
 	funkTypeName(1);
-	cout << "Decryption string: " << endl;
+	cout << "Расшифрованная строка: " << endl;
 	uint64_t buferInt = 0;
 	while (!fout.eof())
 	{
@@ -80,7 +80,7 @@ void AtbashDecode(int code) {
 
 	funkPrinciple(2);
 	funkTypeName(2);
-	cout << "Decryption string: " << endl;
+	cout << "Расшифрованная строка: " << endl;
 	while (!fout1.eof()) {
 		vector<char> seng = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
 		vector<char> beng = { 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z' };
@@ -132,7 +132,7 @@ void BinaryDecode()
 	funkPrinciple(2);
 	funkTypeName(3);
 
-	cout << "Decrypted string:" << endl;
+	cout << "Расшифрованная строка:" << endl;
 	while (!fout.eof())
 	{
 		inputString = "";

@@ -6,16 +6,16 @@
 void passwordCheck()
 {
 	string password = "";
-	cout << "Enter password" << endl << ": ";
+	cout << "Введите пароль" << endl << ": ";
 	getline(cin, password);
 	while (password != PASSWORD)
 	{
 		system("CLS");
-		cout << "Wrong password!" << endl << "Try again." << endl << ": ";
+		cout << "Неверный пароль!" << endl << "Попробуйте снова." << endl << ": ";
 		getline(cin, password);
 	}
 	system("CLS");
-	cout << "Authorization success!" << endl;;
+	cout << "Авторизация прошла успешно!" << endl;;
 	Sleep(500);
 	system("CLS");
 }
@@ -29,16 +29,16 @@ void inputStrToTxt()
 	{
 		try
 		{
-			cout << "Do you want to encrypt your file, create a new one, or take a random prepared one?" << endl << "<1>Your file" << endl << "<2>Create a new one" << endl << "<3>Take a random prepared one" << endl << ": ";
+			cout << "Вы хотите зашифровать свой файл, создать новый или взять подготовленный файл?" << endl << "<1>Ваш файл" << endl << "<2>Создать новый" << endl << "<3>Использовать подготовленный" << endl << ": ";
 			getline(cin, fileCreate);
 			if (fileCreate == "")
 			{
-				throw runtime_error("An empty string has been entered.\nTry again.\n");
+				throw runtime_error("Была введена пустая строка.\nПопробуйте снова.\n");
 			}
 			if (fileCreate != "1" && fileCreate != "2" && fileCreate != "3")
 			{
 				string err;
-				err = "Invalid input.\nYou have entered \"" + fileCreate + "\", when \"1\" or \"2\" or \"3\" was expected.\nTry again.\n";
+				err = "Неверный ввод.\nВы ввели \"" + fileCreate + "\", когда ожидались \"1\" или \"2\" или \"3\".\nПопробуйте снова.\n";
 				throw runtime_error(err);
 			}
 			isGood = true;
@@ -58,14 +58,14 @@ void inputStrToTxt()
 		string path = "";
 		do
 		{
-			cout << "Enter the path to the file (remember, the file must be ANSI or Windows-1251 encoded)" << endl << ": ";
+			cout << "Введите путь к файлу (помните, что файл должен быть в кодировке ANSI или Windows-1251)." << endl << ": ";
 			getline(cin, path);
 			try
 			{
 				fout.open(path);
 				if (!fout.is_open())
 				{
-					throw runtime_error("Unknown file path.\nTry again.\n");
+					throw runtime_error("Неизвестный путь к файлу.\nПопробуйте снова.\n");
 				}
 				string bufer = "";
 				while (!fout.eof())
@@ -73,13 +73,13 @@ void inputStrToTxt()
 					getline(fout, bufer);
 					if (bufer == "")
 					{
-						throw runtime_error("The file is empty.\nTry again.\n");
+						throw runtime_error("Файл пуст.\nПопробуйте снова.\n");
 					}
 					for (int i = 0; i < bufer.length(); i++)
 					{
 						if ((int)bufer[i] < 32 || (int)bufer[i] > 126)
 						{
-							throw runtime_error("There are excluded characters in the text.\nLatin alphabet characters punctuation marks and special characters are expected.\nTry again.\n");
+							throw runtime_error("В тексте есть исключенные символы.\nОжидаются символы латинского алфавита, знаки препинания и специальные символы.\nПопробуйте снова.\n");
 						}
 					}
 					fin << bufer;
@@ -106,19 +106,19 @@ void inputStrToTxt()
 		string inputStr = "";
 		do
 		{
-			cout << "Enter a line for encryption" << endl << ": ";
+			cout << "Введите строку для шифрования" << endl << ": ";
 			try
 			{
 				getline(cin, inputStr);
 				if (inputStr == "")
 				{
-					throw runtime_error("An empty text has been entered.\nTry again.\n");
+					throw runtime_error("Была введена пустая строка.\nПопробуйте снова.\n");
 				}
 				for (int i = 0; i < inputStr.length(); i++)
 				{
 					if ((int)inputStr[i] < 32 || (int)inputStr[i] > 126)
 					{
-						throw runtime_error("There are excluded characters in the text.\nLatin alphabet characters punctuation marks and special characters are expected.\nTry again.\n");
+						throw runtime_error("В тексте есть исключенные символы.\nОжидаются символы латинского алфавита, знаки препинания и специальные символы.\nПопробуйте снова.\n");
 					}
 				}
 				isGood = true;
@@ -161,18 +161,18 @@ int principleOfOperation()
 	do
 	{
 		//Protection against incorrectly entered operating principle
-		cout << "Choose the principle of operation: " << endl << "<1>Encryption" << endl << "<2>Decryption" << endl << ": ";
+		cout << "Выберите принцип работы: " << endl << "<1>Шифрование" << endl << "<2>Расшифрование" << endl << ": ";
 		try
 		{
 			getline(cin, strNumPrinciple);
 			if (strNumPrinciple == "")
 			{
-				throw runtime_error("An empty string has been entered.\nTry again.\n");
+				throw runtime_error("Была введена пустая строка.\nПопробуйте снова.\n");
 			}
 			if (strNumPrinciple != "1" && strNumPrinciple != "2")
 			{
 				string err;
-				err = "Invalid input.\nYou have entered \"" + strNumPrinciple + "\", when \"1\" or \"2\" was expected.\nTry again.\n";
+				err = "Неверный ввод.\nВы ввели \"" + strNumPrinciple + "\", когда ожидались \"1\" или \"2\".\nПопробуйте снова.\n";
 				throw runtime_error(err);
 			}
 			isGood = true;
@@ -200,18 +200,18 @@ int cryptoTypeSelect(int funkType)
 	{
 		try //Protection against an incorrectly entered encryption type
 		{
-			cout << "Select the encryption/decryption type: " << endl << "<1>RSA Cipher" << endl << "<2>Atbash Cipher"
-				<< endl << "<3>Binary Cipher"
+			cout << "Выберите тип шифрования/расшифрования: " << endl << "<1>Шифр RSA" << endl << "<2>Шифр Атбаш"
+				<< endl << "<3>Бинарный шифр"
 				<< endl << ": ";
 			getline(cin, strNumType);
 			if (strNumType == "")
 			{
-				throw runtime_error("An empty string has been entered.\nTry again.\n");
+				throw runtime_error("Была введена пустая строка.\nПопробуйте снова.\n");
 			}
 			if (strNumType != "1" && strNumType != "2" && strNumType != "3")
 			{
 				string err;
-				err = "Invalid input.\nYou have entered \"" + strNumType + "\", when \"1\" or \"2\" or \"3\" was expected.\nTry again.\n";
+				err = "Неверный ввод.\nВы ввели \"" + strNumType + "\", когда ожидались \"1\" или \"2\" или \"3\".\nПопробуйте снова.\n";
 				throw runtime_error(err);
 			}
 			isGood = true;
@@ -286,16 +286,16 @@ void encryptionCheck(int cryptoType, int funkType)
 	{
 		try
 		{
-			cout << "Do you want to check the encryption?" << endl << "<1>Yes" << endl << "<2>No" << endl << ":";
+			cout << "Вы хотите проверить шифрование?" << endl << "<1>Да" << endl << "<2>Нет" << endl << ":";
 			getline(cin, codeCheck);
 			if (codeCheck == "")
 			{
-				throw runtime_error("An empty string has been entered.\nTry again.\n");
+				throw runtime_error("Была введена пустая строка.\nПопробуйте снова.\n");
 			}
 			if (codeCheck != "1" && codeCheck != "2")
 			{
 				string err;
-				err = "Invalid input.\nYou have entered \"" + codeCheck + "\", when \"1\" or \"2\" was expected.\nTry again.\n";
+				err = "Неверный ввод.\nВы ввели \"" + codeCheck + "\", когда ожидались \"1\" или \"2\".\nПопробуйте снова.\n";
 				throw runtime_error(err);
 			}
 			isGood = true;

@@ -34,8 +34,8 @@ void RSACode()
 	ofstream fin("Str_aft_proc.txt");
 
 	funkPrinciple(1);
-	funkTypeName(2);
-	cout << "Encryption string: " << endl;
+	funkTypeName(1);
+	cout << "Зашифрованная строка: " << endl;
 
 	while (!fout.eof())
 	{
@@ -77,8 +77,8 @@ void AtbashCode(int code)
 	system("CLS");
 
 	funkPrinciple(1);
-	funkTypeName(7);
-	cout << "Encrypted string: " << endl;
+	funkTypeName(2);
+	cout << "Зашифрованная строка: " << endl;
 	while (!fout1.eof()) {
 		inputString = "";
 		outputString = "";
@@ -130,9 +130,9 @@ void BinaryCode()
 	string outputString = "";
 
 	funkPrinciple(1);
-	funkTypeName(11);
+	funkTypeName(3);
 
-	cout << "Encrypted string:" << endl;
+	cout << "Зашифрованная строка:" << endl;
 	while (!fout.eof())
 	{
 		inputString = "";

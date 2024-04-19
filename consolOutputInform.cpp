@@ -6,13 +6,13 @@ void funkTypeName(int cryptoType)
 	switch (Ciphers(cryptoType))
 	{
 	case Ciphers::RSA:
-		cout << "RSA Cipher" << endl;
+		cout << "Шифр RSA" << endl;
 		break;
 	case Ciphers::Atbash:
-		cout << "Atbash Cipher" << endl;
+		cout << "Шифр Атбаш" << endl;
 		break;
 	case Ciphers::Binary:
-		cout << "Binary Cipher" << endl;
+		cout << "Бинарный шифр" << endl;
 		break;
 	}
 }
@@ -23,10 +23,10 @@ void funkPrinciple(int funkType)
 	switch (Principle(funkType))
 	{
 	case Principle::Encription:
-		cout << "Encryption" << endl;
+		cout << "Шифрование" << endl;
 		break;
 	case Principle::Decription:
-		cout << "Decryption" << endl;
+		cout << "Расшифрование" << endl;
 		break;
 	}
 }
